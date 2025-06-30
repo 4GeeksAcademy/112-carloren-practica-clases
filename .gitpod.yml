@@ -1,13 +1,11 @@
 ports:
-  - port: 8080
-    onOpen: open-preview
-    visibility: public
-
+    - port: 3000
+      onOpen: open-browser
 tasks:
-  - before: nvm install 16
-    init: npm install
-    command: npm run start
-
+    - init: >
+        npm ci &&
+        cp .env.example .env &&
+        npm run dev
 
 vscode:
   extensions:
