@@ -1,32 +1,15 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
-export const Cards = () => {
-
-    const [contactList, setContactList] = useState([
-        { nombre: "Carlos Lorenzo", direccion: "Calle Falsa 123", tlf: "678 912 345", correo: "carloslorenzo@email.com" },
-        { nombre: "Judith Ramírez", direccion: "Calle Verdadera 987", tlf: "987 654 321", correo: "judithramirez@email.com" },
-        { nombre: "Luis Guilarte", direccion: "Calle 4Geeks 567", tlf: "463 385 404", correo: "luisprofe@email.com" }
-    ])
+export const Cards = ({ name, uid }) => {
 
     return (
-        <div className="d-flex flex-column">
-            {contactList.map((item, index) => (
-                <div key={index} className="card my-2" >
-                    < div className="row g-0" >
-                        <div className="col-md-4">
-                            <img style={{ maxHeight: "200px" }} src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" className="img-fluid rounded-circle m-2 " alt="..." />
-                        </div>
-                        <div className="col-md-8">
-                            <div className="card-body text-start">
-                                <h5 className="card-title">{item.nombre}</h5>
-                                <p className="card-text"><i className="fa-solid fa-location-dot"></i>&nbsp;&nbsp;&nbsp;{item.direccion}</p>
-                                <p className="card-text"><i className="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp;{item.tlf}</p>
-                                <p className="card-text"><i className="fa-solid fa-envelope"></i>&nbsp;&nbsp;&nbsp;{item.correo}</p>
-                            </div>
-                        </div>
-                    </div >
-                </div >
-            ))}
+        <div className="card col">
+            <img src="" className="card-img-top" alt="..." />
+            <div className="card-body">
+                <h5 className="card-title">{name}</h5>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                <Link to={"/details/" + uid} className="btn btn-primary">Go somewhere</Link>
+            </div>
         </div>
     );
 };
